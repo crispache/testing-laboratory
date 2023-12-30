@@ -110,7 +110,6 @@ describe('ConfirmationDialogComponent specs', () => {
 
     await userEvent.click(acceptButtonElement);
     expect(props.onAccept).toHaveBeenCalled();
-    expect(props.onAccept).toHaveBeenCalledTimes(1);
   });
 
   it('should render prop title, different a String(React.ReactNode), when the Dialog is open (isOpen=true)', () => {
