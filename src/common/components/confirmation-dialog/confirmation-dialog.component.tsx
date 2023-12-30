@@ -26,11 +26,6 @@ export const ConfirmationDialogComponent: React.FunctionComponent<Props> = (
 ) => {
   const { isOpen, onAccept, onClose, title, labels, children } = props;
 
-  const handleAccept = () => {
-    onAccept();
-    onClose();
-  };
-
   return (
     <Dialog open={isOpen}>
       <DialogTitle>{title}</DialogTitle>
@@ -39,7 +34,7 @@ export const ConfirmationDialogComponent: React.FunctionComponent<Props> = (
         <Button onClick={onClose} color="secondary" variant="contained">
           {labels.closeButton}
         </Button>
-        <Button onClick={handleAccept} color="primary" variant="contained">
+        <Button onClick={onAccept} color="primary" variant="contained">
           {labels.acceptButton}
         </Button>
       </DialogActions>
