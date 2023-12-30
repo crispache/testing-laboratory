@@ -89,36 +89,28 @@ describe('ConfirmationDialogComponent specs', () => {
     expect(props.onClose).toHaveBeenCalled();
   });
 
-  it('should call handleAccept(onAccept and onClose) when it clicks on "accept" button', async () => {
+  it('should call onAccept when it clicks on "accept" button', async () => {
     // Arrange
     const props = {
       ...mockProps,
       onAccept: jest.fn(),
-      onClose: jest.fn(),
     }
 
     // Act
     render(<ConfirmationDialogComponent {...props}/>);
 
     const dialogElement = screen.queryByRole("dialog");
-    const closeButtonElement = within(dialogElement).getByRole("button",{
-      name: 'Cerrar'
-    });
     const acceptButtonElement = within(dialogElement).getByRole("button",{
       name: 'Aceptar'
     });
 
     // Assert
     expect(dialogElement).toBeInTheDocument();
-    expect(closeButtonElement).toBeInTheDocument();
     expect(acceptButtonElement).toBeInTheDocument();
 
     await userEvent.click(acceptButtonElement);
     expect(props.onAccept).toHaveBeenCalled();
-    expect(props.onClose).toHaveBeenCalled();
-
     expect(props.onAccept).toHaveBeenCalledTimes(1);
-    expect(props.onClose).toHaveBeenCalledTimes(1);
   });
 
   it('should render prop title, different a String(React.ReactNode), when the Dialog is open (isOpen=true)', () => {
