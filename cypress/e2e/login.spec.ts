@@ -83,7 +83,7 @@ describe('Login specs', () => {
     // Assert
     cy.get('p').should('have.text', 'Debe informar el campo');
     cy.get('p').invoke('attr', 'class').should('contain', 'error');
-    cy.get('p').should('have.css','color', 'rgb(211, 47, 48)');
+    cy.get('p').should('have.css','color', 'rgb(211, 47, 47)');
   });
 
   it("should make login request when fill in the form and press 'Enter' ", () => {
